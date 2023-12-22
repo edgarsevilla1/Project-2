@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoptronics - Your Ultimate Tech Store</title>
+
+    <!-- Stylesheets -->    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous">
+
+    <!-- Internal Styles -->        
+    <style>
+        body {
+            padding-top: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .jumbotron {
+            background-image: url('https://placekitten.com/1600/900'); /* Replace with your image */
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .product-card {
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .footer-links h6 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .footer-links p, .footer-links a {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .social-icons a {
+            color: #555;
+            margin-right: 15px;
+        }
+
+        .subscribe {
+            margin-top: 20px;
+        }
+
+        .subscribe label {
+            font-size: 14px;
+            color: #555;
+            margin-right: 10px;
+        }
+
+        .subscribe input {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .subscribe button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .subscribe button:hover {
+            background-color: #0056b3;
+        }
+    </style>     
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Shoptronics</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#cartModal" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to Our Online Store</h1>
+            <p class="lead">Discover amazing products at great prices.</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Shop Now</a>
+        </div>
+    <main class="main">
+
+        <!-- Featured Products Section -->
+        <section class="container">
+            <h2 class="mb-4">Featured Products</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="https://placekitten.com/300/200" class="card-img-top" alt="Product Image">                           
+                        <div class="card-body">
+                            <h2 class="card-title">Video Games</h2>
+                            <p class="card-text">Playstation/Xbox/Steam</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$19.99</span>
+                                <button class="btn btn-primary" onclick="addToCart('Video Games', 19.99)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="https://placekitten.com/300/200" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h2 class="card-title">Movies</h2>
+                            <p class="card-text">Description of product 2.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$29.99</span>
+                                <button class="btn btn-primary" onclick="addToCart('Movies', 29.99)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="https://placekitten.com/300/200" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h2 class="card-title">Buy/Sell/Trade</h2>
+                            <p class="card-text">Description of product 3.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$39.99</span>
+                                <button class="btn btn-primary" onclick="addToCart('Buy/Sell/Trade', 39.99)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+                
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">       
+    <div class="form-wrapper">
+            <div class="form-side">
+            <a href="#" title="Logo">
+                <img class="logo" src="assets/logo.png" alt="Logo">
+            </a>
+            <form class="my-form">
+                <div class="login-welcome-row">
+                    <h1>Create your account &#x1F44F;</h1>
+                </div>
+                <div class="socials-row">
+                    <a href="#" title="Use Google">
+                        <img src="assets/google.png" alt="Google">
+                        Sign up with Google
+                    </a>
+                    <a href="#" title="Use Apple">
+                        <img src="assets/apple.png" alt="Apple">
+                        Sign up with Apple
+                    </a>
+                </div>
+                <div class="divider">
+                    <span class="divider-line"></span>
+                    Or
+                    <span class="divider-line"></span>
+                </div>
+                <div class="text-field">
+                    <label for="email">Email:
+                        <input type="email" id="email" name="email" autocomplete="off" placeholder="Your Email"
+                            required>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                            <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28"></path>
+                        </svg>
+                    </label>
+                </div>
+                <div class="text-field">
+                    <label for="password">Password:
+                        <input id="password" type="password" name="password" placeholder="Your Password" title="Minimum 6 characters at 
+                                                        least 1 Alphabet and 1 Number"
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" required>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z">
+                            </path>
+                            <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                            <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                        </svg>
+                    </label>
+                </div>
+                <div class="text-field">
+                    <label for="confirm-password">Repeat Password:
+                        <input id="confirm-password" type="password" name="password" placeholder="Repeat Password"
+                            title="Minimum 6 characters at east 1 Alphabet and 1 Number"
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" required>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z">
+                            </path>
+                            <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                            <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                        </svg>
+                    </label>
+                </div>
+                <button class="my-form__button" type="submit">
+                    Sign up
+                </button>
+                <div class="my-form__actions">
+                    <div class="my-form__row">
+                        <span>Did you forget your password?</span>
+                        <a href="#" title="Reset Password">
+                            Reset Password
+                        </a>
+                    </div>
+                    <div class="my-form__signup">
+                        <a href="#" title="Login">
+                            Login
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="info-side">
+            <img src="assets/mock.png" alt="Mock" class="mockup" />
+            <div class="welcome-message">
+                <h2>Navitron Maps! 👋</h2>
+                <p>
+                    Your ultimate guide to navigating the world
+                    and discovering new places with ease.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="cartModalBody">
+                    <!-- Cart items will be displayed here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="checkoutModalBody">
+                    <!-- Checkout form and summary will be displayed here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="completePurchase()">Complete Purchase</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+
+                <!-- Footer Columns -->
+                <div class="col-md-3">
+                    <h6>Contact Us</h6>
+                    <p><a href="#">Home</a></p>
+                    <p><a href="#">Shop</a></p>
+                    <p><a href="#">About Us</a></p>
+                    <p><a href="#">Contact</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h6>Information</h6>
+                    <p><a href="#">About Us</a></p>
+                    <p><a href="#">Delivery Information</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Terms & Conditions</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h6>Customer Service</h6>
+                    <p><a href="#">FAQs</a></p>
+                    <p><a href="#">Contact Us</a></p>
+                    <p><a href="#">Returns</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h6>My Account</h6>
+                    <p><a href="#">My Account</a></p>
+                    <p><a href="#">Order History</a></p>
+                    <p><a href="#">Wishlist</a></p>
+                    <p><a href="#">Newsletter</a></p>
+                </div>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="row social-icons">
+                <div class="col-md-12">
+                    <h6>Connect with Us</h6>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+
+            <!-- Subscribe Section -->
+            <div class="row subscribe">
+                <div class="col-md-12">
+                    <label for="email">Subscribe to our newsletter:</label>
+                    <input type="email" id="email" placeholder="Your email">
+                    <button onclick="subscribe()">Subscribe</button>
+                </div>
+            </div>
+        </div>
+            <hr>
+            <p>&copy; 2023 Online Ecommerce Retail Store. All rights reserved.</p>
+        </div>
+        </div>            
+    </footer>
+
+    <!-- JavaScript and Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        function subscribe() {
+            var email = document.getElementById('email').value;
+
+            // Simple email validation
+            if (email && /\S+@\S+\.\S+/.test(email)) {
+                // Display subscription status in the modal
+                document.getElementById('modalBody').innerText = 'Thank you for subscribing! You will receive updates at ' + email;
+                $('#subscribeModal').modal('show');
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }    
+        // Smooth scrolling for navigation links
+        $('a.nav-link').on('click', function (e) {
+            e.preventDefault();
+            var target = this.hash;
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 800);
+        });
+        var cartItems = [];
+
+        function addToCart(productName, price) {
+            cartItems.push({ productName, price });
+            updateCartModal();
+        }
+
+        function updateCartModal() {
+            var cartModalBody = document.getElementById('cartModalBody');
+            cartModalBody.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                cartModalBody.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cartItems.forEach(item => {
+                    cartModalBody.innerHTML += `<p>${item.productName} - $${item.price.toFixed(2)}</p>`;
+                });
+            }
+
+            $('#cartModal').modal('show');
+        }
+
+        function checkout() {
+            $('#checkoutModal').modal('show');
+            updateCheckoutModal();
+        }
+
+        function updateCheckoutModal() {
+            var checkoutModalBody = document.getElementById('checkoutModalBody');
+            checkoutModalBody.innerHTML = '';
+
+            cartItems.forEach(item => {
+                checkoutModalBody.innerHTML += `<p>${item.productName} - $${item.price.toFixed(2)}</p>`;
+            });
+
+            var totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+            checkoutModalBody.innerHTML += `<p><strong>Total: $${totalPrice.toFixed(2)}</strong></p>`;
+        }
+
+        function completePurchase() {
+            // Implement your purchase logic here
+            alert('Purchase completed successfully!');
+            // Clear the cart after completing the purchase
+            cartItems = [];
+            updateCartModal();
+            $('#checkoutModal').modal('hide');
+        }
+        function updateCart() {
+        updateCartModal();
+        updateCartIcon();
+        }
+
+        // Function to add items to the cart
+        function addToCart(productName, price) {
+        cartItems.push({ productName, price });
+        updateCart();
+        }
+
+        // Function to remove items from the cart
+        function removeFromCart(index) {
+        cartItems.splice(index, 1);
+        updateCart();
+        }   
+        function performLogin() {
+            // Implement your login logic here
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Example: Check if the username and password are correct
+            if (username === 'example' && password === 'password') {
+                alert('Login successful!');
+                $('#loginModal').modal('hide');
+                // You can redirect the user or perform other actions after successful login
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }             
+    </script>   
+
+</body>
+
+</html>
